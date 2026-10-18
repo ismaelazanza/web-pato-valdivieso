@@ -6,8 +6,17 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<section class="grid min-h-60 place-items-center bg-secondary px-5 py-16 text-center sm:min-h-72 lg:min-h-80" aria-labelledby="page-title">
-  <div data-reveal>
+<section class="relative grid min-h-60 place-items-center overflow-hidden px-5 py-16 text-center sm:min-h-72 lg:min-h-80" aria-labelledby="page-title">
+  <img
+    class="absolute inset-0 size-full object-cover object-center"
+    src="/images/backparapaginas.avif"
+    alt=""
+    width="1774"
+    height="887"
+    loading="eager"
+    aria-hidden="true"
+  />
+  <div class="relative z-10" data-reveal>
     <span class="mx-auto mb-6 block h-2 w-20 bg-accent" aria-hidden="true"></span>
     <h1 id="page-title" class="m-0 text-[clamp(3.2rem,7vw,7rem)] leading-none font-bold tracking-[-.065em] text-primary">
       {title}

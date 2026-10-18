@@ -1,66 +1,64 @@
 ---
-import { Icon } from 'astro-icon/components';
-
 const proposals = [
   {
     title: 'Colectores Occidentales y ampliación de los colectores Marginales',
     description: 'Impulsaremos el fortalecimiento del sistema de alcantarillado mediante la construcción de los Colectores Occidentales y la ampliación de los colectores Marginales. Esta propuesta busca mejorar la conducción de las aguas residuales, reducir los problemas de desbordamientos y contaminación y acompañar el crecimiento ordenado de la ciudad. La planificación técnica y la intervención progresiva serán fundamentales para proteger la salud de las familias y nuestros recursos hídricos.',
-    icon: 'mdi:pipe',
+    image: '/images/propuestas/colectores.avif',
   },
   {
     title: 'Agua para todos',
     description: 'Trabajaremos para mejorar el acceso al agua potable en los barrios urbanos y las parroquias rurales del cantón. Priorizaremos la ampliación de redes, el mantenimiento de la infraestructura existente, la reducción de pérdidas y el fortalecimiento de los sistemas de abastecimiento. El objetivo es avanzar hacia un servicio más continuo, seguro y eficiente, con una planificación que responda al crecimiento poblacional y a las necesidades de cada sector.',
-    icon: 'mdi:water-outline',
+    image: '/images/propuestas/agua-para-todos.avif',
   },
   {
     title: 'Turismo: Loja, tierra de los miradores',
     description: 'Queremos aprovechar la riqueza paisajística, natural y cultural de nuestro cantón mediante una red de miradores turísticos que permita descubrir Loja desde nuevas perspectivas. Promoveremos espacios con accesibilidad, señalización, áreas de descanso y condiciones adecuadas para los visitantes. Esta iniciativa busca dinamizar el turismo, impulsar los emprendimientos locales y generar oportunidades económicas para las comunidades urbanas y rurales.',
-    icon: 'mdi:binoculars',
+    image: '/images/propuestas/turismo-miradores.avif',
   },
   {
     title: 'Potenciar la cultura, el arte y la música',
     description: 'Loja es reconocida por su identidad cultural y su extraordinario talento artístico. Nuestra propuesta busca fortalecer los espacios de formación, creación y difusión para músicos, artistas, gestores culturales y nuevas generaciones. Impulsaremos actividades culturales en barrios y parroquias, promoveremos el aprovechamiento de los espacios públicos y apoyaremos iniciativas que fortalezcan la economía cultural y proyecten a Loja como un referente artístico.',
-    icon: 'mdi:music-clef-treble',
+    image: '/images/propuestas/cultura-arte-musica.avif',
   },
   {
     title: 'Centro de apoyo para el emprendimiento',
     description: 'Proponemos crear un espacio municipal de acompañamiento para quienes desean iniciar o fortalecer sus negocios. El centro ofrecería orientación, capacitación en administración, comercialización, herramientas digitales y desarrollo de proyectos productivos. También buscaría facilitar la vinculación con instituciones y oportunidades de financiamiento. Queremos que los emprendedores, especialmente jóvenes y mujeres, encuentren herramientas para transformar sus ideas en actividades económicas sostenibles.',
-    icon: 'mdi:storefront-outline',
+    image: '/images/propuestas/centro-apoyo-emprendimiento.avif',
   },
   {
     title: 'MERKALOJA',
     description: 'MERKALOJA se plantea como una iniciativa para fortalecer la comercialización de productos locales y crear mejores oportunidades para agricultores, productores, comerciantes y emprendedores. Buscaremos promover espacios de encuentro entre productores y consumidores, con condiciones adecuadas de organización, higiene y comercialización. La propuesta apunta a dinamizar la economía del cantón, apoyar la producción local y acercar productos de calidad a las familias lojanas.',
-    icon: 'mdi:marketplace-outline',
+    image: '/images/propuestas/merkaloja.avif',
   },
   {
     title: 'Plan 100K en vías y calles',
     description: 'La vialidad será una prioridad de nuestra gestión. El Plan 100K propone intervenir 100 kilómetros de vías y calles del cantón, mediante una programación técnica que permita atender sectores con necesidades de mejoramiento vial. Buscaremos fortalecer la capacidad operativa municipal para ejecutar obras de asfaltado, rehabilitación y mantenimiento, considerando las condiciones de drenaje y seguridad vial. Queremos mejorar la movilidad, la conectividad y la calidad de vida de las familias.',
-    icon: 'mdi:road-variant',
+    image: '/images/propuestas/plan-100k-vias-calles.avif',
   },
   {
     title: 'Plan de vivienda “Mi Casita”',
     description: 'Impulsaremos alternativas que faciliten el acceso a una vivienda digna para las familias del cantón, especialmente aquellas con mayores dificultades económicas. El programa “Mi Casita” buscará articular esfuerzos institucionales para identificar terrenos aptos, promover proyectos habitacionales y facilitar mecanismos de acceso a vivienda social. La planificación deberá considerar servicios básicos, conectividad y espacios comunitarios, con el propósito de contribuir a la seguridad y estabilidad familiar.',
-    icon: 'mdi:home-heart',
+    image: '/images/propuestas/plan-vivienda-mi-casita.avif',
   },
   {
     title: 'Atención de salud mental y ampliación de los comedores populares',
     description: 'El bienestar social requiere atender tanto las necesidades emocionales como las alimentarias. Promoveremos espacios de orientación psicológica, prevención y acompañamiento comunitario, en coordinación con las instituciones competentes. Asimismo, impulsaremos el fortalecimiento y la ampliación de los comedores populares para apoyar a personas y familias en situación de vulnerabilidad. La solidaridad y la atención digna serán principios fundamentales de esta iniciativa.',
-    icon: 'mdi:heart-pulse',
+    image: '/images/propuestas/salud-mental-comedores-populares.avif',
   },
   {
     title: 'Un millón de árboles',
     description: 'Proponemos impulsar un programa de reforestación y recuperación ambiental con la meta de plantar un millón de árboles en el cantón Loja. Priorizaremos especies adecuadas para cada ecosistema, la protección de fuentes hídricas, la recuperación de áreas degradadas y el fortalecimiento de espacios verdes. Buscaremos involucrar a comunidades, instituciones educativas, organizaciones y ciudadanía en jornadas de siembra, mantenimiento y seguimiento, porque plantar árboles también significa cuidar su crecimiento.',
-    icon: 'mdi:tree-outline',
+    image: '/images/propuestas/un-millon-arboles.avif',
   },
   {
     title: 'Megaparque del Sur',
     description: 'Planteamos desarrollar un gran espacio de encuentro, recreación y convivencia familiar en el sur de Loja. El Megaparque del Sur buscará integrar áreas verdes, senderos peatonales, espacios deportivos, juegos infantiles y zonas de esparcimiento para personas de distintas edades. Su desarrollo deberá responder a criterios de accesibilidad, seguridad, sostenibilidad y mantenimiento, con la finalidad de recuperar espacios para la ciudadanía y fortalecer la vida comunitaria.',
-    icon: 'mdi:pine-tree-variant-outline',
+    image: '/images/propuestas/megaparque-sur.avif',
   },
   {
     title: 'Clínica veterinaria móvil',
     description: 'Impulsaremos una unidad móvil de atención veterinaria para acercar servicios básicos de salud animal a los barrios y parroquias del cantón. Esta iniciativa buscará facilitar jornadas de valoración, desparasitación, vacunación según las competencias correspondientes, esterilización programada y educación sobre tenencia responsable. La atención itinerante permitirá llegar a sectores con dificultades de acceso y contribuir al bienestar animal y a una convivencia comunitaria más responsable.',
-    icon: 'mdi:dog',
+    image: '/images/propuestas/clinica-veterinaria-movil.avif',
   },
 ];
 ---
@@ -80,20 +78,20 @@ const proposals = [
 
       <div class="divide-y divide-line border-y border-line">
         {
-          proposals.map((proposal, index) => (
+          proposals.map((proposal) => (
             <article class="py-14 sm:py-16 lg:py-20" data-reveal>
-              <div class="flex items-start justify-between gap-6">
-                <span class="grid size-14 shrink-0 place-items-center rounded-full bg-secondary text-primary sm:size-16">
-                  <Icon name={proposal.icon} size={28} />
-                </span>
-                <span class="font-display text-4xl leading-none text-primary/15 sm:text-5xl" aria-hidden="true">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
+              <div class="max-w-3xl">
+                <h3 class="sr-only">{proposal.title}</h3>
+                <img
+                  class="block h-auto w-full"
+                  src={proposal.image}
+                  alt=""
+                  width="6250"
+                  height="2554"
+                  loading="lazy"
+                  aria-hidden="true"
+                />
               </div>
-
-              <h3 class="mt-8 max-w-[16ch] text-[clamp(2rem,4vw,3.7rem)] leading-[1.03] font-bold tracking-[-.05em] text-ink">
-                {proposal.title}
-              </h3>
               <p class="mt-6 max-w-3xl text-base leading-[1.8] text-ink/65 sm:text-lg">
                 {proposal.description}
               </p>
