@@ -1,0 +1,59 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const facts = [
+  ['Profesión', 'Abogado y docente universitario'],
+  ['Experiencia', 'Exconcejal del cantón Loja'],
+  ['Formación', 'Derecho y Ciencias Políticas'],
+  ['Vocación', 'Servicio público'],
+];
+
+const socialLinks = [
+  { label: 'Facebook', href: 'https://www.facebook.com/patricioalberto.valdiviesoespinosa', icon: 'mdi:facebook' },
+  { label: 'Instagram', href: 'https://www.instagram.com/patriciovaldiviesoe/', icon: 'mdi:instagram' },
+  { label: 'TikTok', href: 'https://www.tiktok.com/@patriciovaldiviesoe', icon: 'mdi:music-note' },
+];
+---
+
+<section class="bg-surface" aria-labelledby="profile-title">
+  <div class="grid lg:grid-cols-2">
+    <div class="min-h-[32rem] overflow-hidden bg-[#d0ccd7] sm:min-h-[42rem] lg:min-h-[52rem]" data-reveal>
+      <img class="size-full object-cover object-[50%_18%]" src="/images/patricio-traje.jpg" alt="Patricio Valdivieso con traje azul" width="640" height="648" />
+    </div>
+
+    <div class="flex items-center px-5 py-16 sm:px-10 sm:py-20 lg:px-[clamp(3rem,6vw,7rem)] lg:py-24" data-reveal data-reveal-delay="100">
+      <div class="w-full max-w-3xl">
+        <p class="mb-4 text-base font-semibold text-primary">Mini biografía</p>
+        <h2 id="profile-title" class="m-0 text-[clamp(2.8rem,5vw,5.2rem)] leading-none font-bold tracking-[-.06em] text-ink">Patricio Valdivieso</h2>
+        <div class="mt-8 grid gap-5 text-base leading-[1.8] text-ink/65 lg:text-lg">
+          <p class="m-0">
+            Patricio Valdivieso es abogado, docente universitario y exconcejal del cantón Loja. Cuenta con estudios de posgrado en Derecho y Ciencias Políticas, además de una amplia experiencia en el ámbito académico y la gestión pública. A lo largo de su trayectoria ha ocupado importantes responsabilidades, entre ellas la Presidencia del Tribunal Provincial Electoral de Loja y la Procuraduría Síndica de la Prefectura de Loja.
+          </p>
+          <p class="m-0">
+            Su historia está ligada al esfuerzo y la superación personal. Creció en una familia de diez hermanos, siendo el menor de ellos. Tras la pérdida de su padre durante la adolescencia, comenzó a trabajar desde muy joven para ayudar a su familia y financiar sus estudios, una experiencia que fortaleció su carácter y su compromiso con el servicio a los demás.
+          </p>
+          <p class="m-0">
+            Padre de tres hijos, dos mujeres y un varón, ha desarrollado su vida profesional con una profunda vocación de servicio, convencido de que el desarrollo de Loja requiere planificación, responsabilidad y una visión de futuro. Su propuesta se enfoca en la recuperación de los servicios básicos, la planificación urbana, la modernización municipal y la generación de oportunidades para todos los lojanos.
+          </p>
+        </div>
+
+        <dl class="mt-10 grid gap-x-8 gap-y-5 border-y border-line py-8 sm:grid-cols-2 lg:mt-12">
+          {facts.map(([label, value]) => (
+            <div>
+              <dt class="text-sm font-semibold text-primary">{label}</dt>
+              <dd class="mt-1 text-base text-ink/70">{value}</dd>
+            </div>
+          ))}
+        </dl>
+
+        <div class="mt-9 flex gap-3" aria-label="Redes sociales de Patricio Valdivieso">
+          {socialLinks.map((item) => (
+            <a class="grid size-12 place-items-center rounded-full border border-line text-primary transition-colors hover:border-accent hover:bg-accent" href={item.href} target="_blank" rel="noreferrer" aria-label={item.label}>
+              <Icon name={item.icon} size={21} />
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

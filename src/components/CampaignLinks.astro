@@ -1,0 +1,88 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const links = [
+  {
+    label: 'Nuestra historia',
+    title: 'Conócenos',
+    description: 'Conoce la trayectoria, los valores y el equipo que trabaja por una Loja con más oportunidades.',
+    href: '/patricio/',
+    theme: 'light',
+  },
+  {
+    label: 'El plan para Loja',
+    title: 'Propuestas',
+    description: 'Soluciones claras para una ciudad ordenada, productiva, segura y cercana a su gente.',
+    href: '/propuestas/',
+    theme: 'accent',
+  },
+  {
+    label: 'El equipo de la ciudad',
+    title: 'Concejales',
+    description: 'Personas preparadas para representar a Loja y convertir sus prioridades en acciones.',
+    href: '/concejales/',
+    theme: 'dark',
+  },
+];
+
+const themes = {
+  light: 'bg-surface text-primary border border-line',
+  accent: 'bg-accent text-primary-dark border border-accent',
+  dark: 'bg-primary-dark text-white border border-primary-dark',
+};
+
+const dividers = {
+  light: 'border-primary/15',
+  accent: 'border-primary-dark/20',
+  dark: 'border-white/25',
+};
+
+const descriptions = {
+  light: 'text-ink/70',
+  accent: 'text-primary-dark/75',
+  dark: 'text-white/70',
+};
+---
+
+<section class="bg-section py-20 sm:py-24 lg:py-32" aria-labelledby="campaign-links-title">
+  <div class="container mx-auto px-5 md:px-8">
+    <header class="mx-auto mb-12 max-w-3xl text-center sm:mb-16 lg:mb-20" data-reveal>
+      <p class="mb-5 text-base font-semibold text-primary">Un proyecto para nuestra ciudad</p>
+      <h2 id="campaign-links-title" class="m-0 text-[clamp(2.5rem,5vw,3rem)] leading-[1.02] font-bold tracking-[-.055em] text-ink">
+        Loja la construimos juntos
+      </h2>
+    </header>
+
+    <div class="grid gap-5 md:grid-cols-3 lg:gap-7">
+      {
+        links.map((item, index) => (
+          <a
+            class:list={[
+              'group/card flex min-h-[30rem] flex-col justify-between p-7 no-underline sm:min-h-[30rem] sm:p-9 lg:min-h-[30rem] lg:p-12',
+              themes[item.theme as keyof typeof themes],
+            ]}
+            href={item.href}
+            data-reveal
+            data-reveal-delay={index * 100}
+          >
+            <div class="flex items-start justify-between gap-6">
+              <span class="text-base font-medium sm:text-lg">{item.label}</span>
+              <Icon class="shrink-0 transition-transform duration-200 group-hover/card:-translate-y-1 group-hover/card:translate-x-1" name="mdi:arrow-top-right" size={30} />
+            </div>
+
+            <div>
+              <h3 class="m-0 max-w-[12ch] text-[clamp(2.25rem,4.1vw,2.40rem)] leading-[1.02] font-bold tracking-[-.055em]">
+                {item.title}
+              </h3>
+              <div class:list={['mt-8 border-t pt-7 lg:mt-11 lg:pt-9', dividers[item.theme as keyof typeof dividers]]}>
+                <p class:list={['m-0 max-w-[34rem] text-base leading-relaxed sm:text-sm', descriptions[item.theme as keyof typeof descriptions]]}>
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

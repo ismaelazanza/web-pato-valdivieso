@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa+One&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Clarity+City:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+:root {
+  --color-primary: #083a78;
+  --color-primary-dark: #052957;
+  --color-secondary: #dcebfa;
+  --color-accent: #f5c518;
+  --color-ink: #122033;
+  --color-surface: #ffffff;
+  --color-line: #d8e0ea;
+  --color-section: #f3f6f9;
+  --font-sans: "Clarity City", sans-serif;
+  --font-display: "Changa One", sans-serif;
+  --header-height: 7.5rem;
+}
+
+@theme inline {
+  --color-primary: var(--color-primary);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent);
+  --color-ink: var(--color-ink);
+  --color-surface: var(--color-surface);
+  --color-line: var(--color-line);
+  --color-section: var(--color-section);
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: var(--color-surface);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 20rem;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

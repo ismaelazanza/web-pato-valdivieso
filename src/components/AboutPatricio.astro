@@ -1,0 +1,53 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<section id="conocenos" class="scroll-mt-28 overflow-hidden bg-surface py-20 sm:py-24 lg:py-32" aria-labelledby="about-patricio-title">
+  <div class="container mx-auto grid items-center gap-16 px-5 md:px-8 lg:grid-cols-12 lg:gap-12 xl:gap-20">
+    <div class="relative min-h-[35rem] sm:min-h-[43rem] lg:col-span-7 lg:min-h-[48rem]" data-reveal>
+      <div class="absolute top-0 left-0 h-[88%] w-[82%] overflow-hidden bg-[#d0ccd7]">
+        <img
+          class="size-full object-cover object-[50%_18%]"
+          src="/images/sonrisa.avif"
+          alt="Patricio Valdivieso sonriendo con camisa blanca"
+          loading="lazy"
+          width="640"
+          height="960"
+        />
+      </div>
+
+      <div class="absolute right-0 bottom-0 h-[52%] w-[54%] overflow-hidden border-[10px] border-surface bg-[#d0ccd7] sm:border-[14px]">
+        <img
+          class="size-full object-cover object-[52%_20%]"
+          src="/images/retrato1.avif"
+          alt="Patricio Valdivieso con traje azul"
+          loading="lazy"
+          width="640"
+          height="648"
+        />
+      </div>
+
+      <span class="absolute bottom-[7%] left-[6%] h-3 w-[30%] bg-accent" aria-hidden="true"></span>
+    </div>
+
+    <div class="lg:col-span-5 lg:pl-4 xl:pl-8" data-reveal data-reveal-delay="120">
+      <p class="mb-5 text-base font-semibold text-primary">Sobre Patricio</p>
+      <h2 id="about-patricio-title" class="m-0 max-w-[12ch] text-[clamp(2.7rem,5.2vw,3.5rem)] leading-[1.01] font-bold tracking-[-.06em] text-ink">
+        Liderazgo cercano para servir a Loja
+      </h2>
+
+      <p class="mt-8 max-w-[40rem] text-lg leading-[1.75] text-ink/70 lg:mt-10 lg:text-lg">
+        Patricio Valdivieso conoce la ciudad, escucha a su gente y cree en una gestión municipal que convierta las necesidades de cada barrio en soluciones concretas.
+      </p>
+
+      <blockquote class="mt-9 max-w-[37rem] border-l-4 border-accent pl-6 text-xl leading-relaxed font-semibold text-primary lg:mt-11 lg:text-2xl">
+        “Loja avanza cuando trabajamos juntos, con experiencia, transparencia y decisión.”
+      </blockquote>
+
+      <a class="group/button mt-10 inline-flex min-h-14 items-center gap-5 bg-primary px-7 py-4 text-base font-bold text-white no-underline transition-colors hover:bg-primary-dark lg:mt-12" href="/patricio/">
+        Conoce su trayectoria
+        <Icon class="transition-transform duration-200 group-hover/button:translate-x-1" name="mdi:arrow-right" size={22} />
+      </a>
+    </div>
+  </div>
+</section>

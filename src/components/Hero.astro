@@ -1,0 +1,165 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section
+  class="relative min-h-[calc(100svh-6.5rem)] overflow-hidden bg-secondary lg:min-h-[calc(100svh-var(--header-height))]"
+  aria-labelledby="hero-title"
+>
+  <div class="absolute inset-0" aria-hidden="true">
+    <img
+      class="size-full object-cover object-[84%_center] md:object-right"
+      src="/images/backpatricio.avif"
+      alt=""
+      loading="eager"
+      fetchpriority="high"
+    />
+  </div>
+
+  <div class="container relative z-10 mx-auto">
+  <div
+    class="flex min-h-[calc(100svh-6.5rem)] w-full min-w-0 flex-col justify-between px-5 pt-11 pb-8 md:w-[59%] md:px-[clamp(1.5rem,4vw,3.5rem)] md:pt-[clamp(4.2rem,8vh,7rem)] lg:min-h-[calc(100svh-var(--header-height))] lg:w-[min(58%,58rem)] lg:px-[clamp(2rem,5vw,6.8rem)] lg:pb-[clamp(2rem,4vh,3rem)]"
+  >
+    <div class="hidden w-full max-w-[46rem] md:block">
+      <h1 id="hero-title" class="m-0">
+        <img
+          class="block h-auto w-full object-contain object-left"
+          src="/images/logopatricio.svg"
+          alt="Patricio Valdivieso"
+          width="2631"
+          height="923"
+          loading="eager"
+        />
+      </h1>
+      <p
+        class="mt-[clamp(1.6rem,3vw,2.4rem)] ml-[clamp(2rem,4vw,3rem)] grid max-w-[30rem] grid-cols-[auto_minmax(3rem,1fr)] items-center gap-4 text-[clamp(1rem,1.2vw,1.2rem)] font-semibold tracking-[.025em] text-primary after:h-1 after:bg-accent after:content-['']"
+      >
+        Candidato a Alcalde de Loja
+      </p>
+    </div>
+
+    <button
+      class="group/card mt-72 grid w-[min(78vw,19rem)] cursor-pointer appearance-none justify-items-start border-0 bg-transparent p-0 text-left font-[inherit] text-primary md:mt-0 md:w-[min(100%,22rem)]"
+      type="button"
+      aria-haspopup="dialog"
+      aria-controls="patricio-video-modal"
+      data-video-open
+    >
+      <span class="relative block aspect-[16/8.8] overflow-hidden bg-surface">
+        <img
+          class="size-full object-cover object-[50%_28%] transition-transform duration-[350ms] group-hover/card:scale-[1.025]"
+          src="/images/patricio-camisa.jpg"
+          alt="Patricio Valdivieso sonriendo con camisa blanca"
+          loading="eager"
+          width="640"
+          height="960"
+        />
+        <span
+          class="absolute top-1/2 left-1/2 grid size-[3.25rem] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-accent text-primary-dark shadow-[0_.5rem_1.4rem_rgb(5_41_87/.2)]"
+          aria-hidden="true"
+        >
+          <Icon name="mdi:play" size={24} />
+        </span>
+      </span>
+      <span class="mt-[.9rem] text-[.82rem] font-semibold"
+        >Conoce a Patricio</span
+      >
+      <strong
+        class="mt-[.15rem] text-[clamp(1.15rem,1.8vw,1.55rem)] leading-[1.1]"
+        >Una vida al servicio de Loja</strong
+      >
+    </button>
+  </div>
+  </div>
+
+  <span
+    class="absolute right-0 bottom-0 h-[.7rem] w-[clamp(7rem,18vw,16rem)] bg-accent"
+    aria-hidden="true"></span>
+</section>
+
+<div
+  class="fixed inset-0 z-[100] hidden items-center justify-center overflow-y-auto bg-primary-dark/65 p-4 backdrop-blur-xl sm:p-8"
+  id="patricio-video-modal"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="patricio-video-title"
+  data-video-modal
+>
+  <div class="relative w-full max-w-5xl shadow-[0_2rem_6rem_rgb(5_41_87/.45)]">
+    <h2 class="sr-only" id="patricio-video-title">Video de Patricio Valdivieso</h2>
+    <button
+      class="absolute -top-14 right-0 grid size-11 cursor-pointer place-items-center rounded-full border border-white/30 bg-white/10 text-white backdrop-blur-md transition-colors hover:bg-accent hover:text-primary-dark sm:-top-16 sm:size-12"
+      type="button"
+      aria-label="Cerrar video"
+      data-video-close
+    >
+      <Icon name="mdi:close" size={27} />
+    </button>
+    <div class="aspect-video overflow-hidden bg-primary-dark">
+      <iframe
+        class="size-full border-0"
+        src=""
+        title="Video de Patricio Valdivieso"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+        data-video-frame
+      ></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+  const videoOpenButton = document.querySelector<HTMLButtonElement>('[data-video-open]');
+  const videoModal = document.querySelector<HTMLElement>('[data-video-modal]');
+  const videoCloseButton = document.querySelector<HTMLButtonElement>('[data-video-close]');
+  const videoFrame = document.querySelector<HTMLIFrameElement>('[data-video-frame]');
+  const videoUrl = 'https://www.youtube-nocookie.com/embed/AYBHYErRwaI?autoplay=1&rel=0';
+
+  const openVideo = () => {
+    if (!videoModal || !videoFrame) return;
+    videoFrame.src = videoUrl;
+    videoModal.classList.remove('hidden');
+    videoModal.classList.add('flex');
+    document.body.classList.add('overflow-hidden');
+    videoCloseButton?.focus();
+  };
+
+  const closeVideo = () => {
+    if (!videoModal || !videoFrame) return;
+    videoModal.classList.add('hidden');
+    videoModal.classList.remove('flex');
+    videoFrame.src = '';
+    document.body.classList.remove('overflow-hidden');
+    videoOpenButton?.focus();
+  };
+
+  videoOpenButton?.addEventListener('click', openVideo);
+  videoCloseButton?.addEventListener('click', closeVideo);
+
+  videoModal?.addEventListener('click', (event) => {
+    if (event.target === videoModal) closeVideo();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (!videoModal?.classList.contains('flex')) return;
+
+    if (event.key === 'Escape') {
+      closeVideo();
+      return;
+    }
+
+    if (event.key === 'Tab' && videoCloseButton && videoFrame) {
+      const firstElement = videoCloseButton;
+      const lastElement = videoFrame;
+
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
+      }
+    }
+  });
+</script>

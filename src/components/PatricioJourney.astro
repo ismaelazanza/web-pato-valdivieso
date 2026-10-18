@@ -1,0 +1,51 @@
+---
+const journey = [
+  {
+    title: 'Vínculo con la comunidad',
+    subtitle: 'Escuchar antes de decidir',
+    description: 'El contacto directo con barrios, parroquias y sectores productivos permite comprender las prioridades reales de la ciudad.',
+  },
+  {
+    title: 'Experiencia al servicio de Loja',
+    subtitle: 'Conocimiento que se convierte en acción',
+    description: 'Una visión de gestión que combina experiencia, planificación y capacidad para construir acuerdos alrededor de objetivos comunes.',
+  },
+  {
+    title: 'Construcción de propuestas',
+    subtitle: 'Soluciones claras y medibles',
+    description: 'Cada propuesta parte de problemas concretos y plantea resultados que la ciudadanía pueda conocer, acompañar y evaluar.',
+  },
+  {
+    title: 'Candidatura a la Alcaldía',
+    subtitle: 'Un proyecto para avanzar juntos',
+    description: 'La decisión de servir a Loja desde una administración cercana, transparente y comprometida con toda la ciudad.',
+  },
+];
+---
+
+<section id="trayectoria" class="scroll-mt-28 bg-section py-20 sm:py-24 lg:py-32" aria-labelledby="journey-title">
+  <div class="container mx-auto grid gap-14 px-5 md:px-8 lg:grid-cols-12 lg:gap-16">
+    <header class="lg:col-span-4" data-reveal>
+      <div class="lg:sticky lg:top-32">
+        <p class="mb-5 text-base font-semibold text-primary">El camino recorrido</p>
+        <h2 id="journey-title" class="m-0 text-[clamp(2.8rem,5.2vw,5.4rem)] leading-none font-bold tracking-[-.06em] text-ink">Trayectoria</h2>
+        <span class="mt-9 block h-2 w-24 bg-accent" aria-hidden="true"></span>
+      </div>
+    </header>
+
+    <div class="divide-y divide-line lg:col-span-8">
+      {journey.map((item, index) => (
+        <article class="py-10 first:pt-0 sm:py-12 lg:py-14" data-reveal data-reveal-delay={index * 80}>
+          <div class="grid gap-5 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start sm:gap-8">
+            <div>
+              <h3 class="m-0 text-[clamp(1.8rem,3.2vw,3rem)] leading-tight font-bold tracking-[-.045em] text-ink">{item.title}</h3>
+              <p class="mt-2 text-base font-semibold text-primary sm:text-lg">{item.subtitle}</p>
+            </div>
+            <span class="font-display text-4xl leading-none text-primary/20 sm:text-5xl" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+          </div>
+          <p class="mt-6 max-w-3xl text-base leading-[1.8] text-ink/65 sm:text-lg">{item.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,89 @@
+---
+const candidates = [
+  {
+    number: '01',
+    name: 'Ariana Thais Ríos Román',
+    role: 'Candidata a concejal por el Distrito Sur',
+    image: '/images/concelajes/ariana-thais-rios-roman.avif',
+  },
+  {
+    number: '02',
+    name: 'Carlos Alberto Chalaco Armijos',
+    role: 'Candidato a concejal por el Distrito Norte',
+    image: '/images/concelajes/carlos-alberto-chalaco-armijos.avif',
+  },
+  {
+    number: '03',
+    name: 'Idania Nayely Flores Espinosa',
+    role: 'Candidata a concejal por el Distrito Norte',
+    image: '/images/concelajes/idania-nayely-flores-espinosa.avif',
+  },
+  {
+    number: '04',
+    name: 'María Dolores Ruíz Jiménez',
+    role: 'Candidata a concejal por el Distrito Sur',
+    image: '/images/concelajes/maria-dolores-ruiz-jimenez.avif',
+  },
+  {
+    number: '05',
+    name: 'Stefany Caralina Zuñiga Jaramillo',
+    role: 'Candidata a concejal por el Distrito Norte',
+    image: '/images/concelajes/stefany-caralina-zuniga-jaramillo.avif',
+  },
+];
+---
+
+<section class="bg-surface py-20 sm:py-24 lg:py-32" aria-labelledby="candidates-title">
+  <div class="container mx-auto px-5 md:px-8">
+    <header class="mx-auto mb-14 max-w-3xl text-center sm:mb-20" data-reveal>
+      <p class="mb-5 text-base font-semibold text-primary">Un equipo para representar a Loja</p>
+      <h2 id="candidates-title" class="m-0 text-[clamp(2.7rem,5vw,5.2rem)] leading-none font-bold tracking-[-.06em] text-ink">
+        Conoce a nuestros candidatos
+      </h2>
+      <p class="mx-auto mt-7 max-w-2xl text-lg leading-[1.75] text-ink/65">
+        Perfiles comprometidos con escuchar, fiscalizar y construir acuerdos en beneficio de toda la ciudad.
+      </p>
+    </header>
+
+    <div class="border-t border-l border-line">
+      {
+        candidates.map((candidate, index) => (
+          <article class="grid border-r border-b border-line lg:grid-cols-2" data-reveal>
+            <div
+              class:list={[
+                'relative flex min-h-[30rem] items-center justify-center overflow-hidden bg-secondary p-8 sm:min-h-[38rem]',
+                index % 2 === 1 ? 'lg:order-2' : '',
+              ]}
+            >
+              <span class="absolute top-7 left-7 z-10 font-display text-7xl leading-none text-white/55 drop-shadow-sm sm:text-8xl" aria-hidden="true">
+                {candidate.number}
+              </span>
+              <img
+                class="absolute inset-0 size-full object-cover object-top"
+                src={candidate.image}
+                alt={candidate.name}
+                width="3333"
+                height="5000"
+                loading="lazy"
+              />
+              <span class="absolute right-0 bottom-0 z-10 h-3 w-28 bg-accent" aria-hidden="true" />
+            </div>
+
+            <div class:list={['flex min-h-[30rem] items-center bg-section p-8 sm:min-h-[38rem] sm:p-12 lg:p-[clamp(3rem,6vw,7rem)]', index % 2 === 1 ? 'lg:order-1' : '']}>
+              <div class="max-w-xl">
+                <p class="mb-5 text-base font-bold text-primary">{candidate.role}</p>
+                <h3 class="m-0 text-[clamp(2.5rem,5vw,5rem)] leading-none font-bold tracking-[-.06em] text-ink">
+                  {candidate.name}
+                </h3>
+                <div class="mt-10 flex items-center gap-4 text-sm font-semibold text-primary/55">
+                  <span class="h-px w-12 bg-accent" aria-hidden="true" />
+                  Loja Compromiso de Todos
+                </div>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

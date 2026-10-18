@@ -1,0 +1,68 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const milestones = [
+  {
+    title: 'Servicio a la comunidad',
+    description: 'Una trayectoria construida desde el trabajo cercano, el compromiso y el respeto por quienes hacen de Loja su hogar.',
+    icon: 'mdi:account-group-outline',
+  },
+  {
+    title: 'Escucha ciudadana',
+    description: 'Recorrer barrios y parroquias para entender sus prioridades y convertir cada conversación en una responsabilidad de gestión.',
+    icon: 'mdi:ear-hearing',
+  },
+  {
+    title: 'Propuestas con propósito',
+    description: 'Planificar soluciones posibles, medibles y conectadas con la realidad cotidiana de las familias lojanas.',
+    icon: 'mdi:lightbulb-on-outline',
+  },
+  {
+    title: 'Un proyecto para Loja',
+    description: 'Sumar experiencia, nuevas ideas y participación para construir una ciudad ordenada, productiva y humana.',
+    icon: 'mdi:city-variant-outline',
+  },
+];
+---
+
+<section id="trayectoria" class="scroll-mt-28 bg-section py-20 sm:py-24 lg:py-32" aria-labelledby="trajectory-title">
+  <div class="container mx-auto grid gap-16 px-5 md:px-8 lg:grid-cols-12 lg:gap-12 xl:gap-20">
+    <header class="lg:col-span-5" data-reveal>
+      <div class="lg:sticky lg:top-32">
+        <p class="mb-5 text-base font-semibold text-primary">El camino para servir</p>
+        <h2 id="trajectory-title" class="m-0 max-w-[11ch] text-[clamp(2.8rem,5.4vw,3.6rem)] leading-none font-bold tracking-[-.06em] text-ink">
+          Trayectoria con propósito
+        </h2>
+        <p class="mt-8 max-w-[34rem] text-lg leading-[1.75] text-ink/65 lg:text-lg">
+          Una forma de hacer política que empieza escuchando, continúa planificando y se demuestra con resultados para la ciudad.
+        </p>
+        <span class="mt-10 block h-2 w-28 bg-accent" aria-hidden="true"></span>
+      </div>
+    </header>
+
+    <div class="lg:col-span-7">
+      <ol class="m-0 list-none p-0">
+        {
+          milestones.map((milestone, index) => (
+            <li class="relative grid grid-cols-[4.5rem_1fr] gap-6 pb-12 last:pb-0 sm:grid-cols-[5.5rem_1fr] sm:gap-8 sm:pb-16 lg:gap-10 lg:pb-20" data-reveal data-reveal-delay={index * 80}>
+              {index < milestones.length - 1 && (
+                <span class="absolute top-[4.5rem] bottom-0 left-9 w-px bg-primary/15 sm:top-[5.5rem] sm:left-11" aria-hidden="true" />
+              )}
+              <span class="relative z-10 grid size-[4.5rem] place-items-center rounded-full bg-surface text-primary shadow-[0_0_0_1px_rgb(8_58_120/.08)] sm:size-[5.5rem]">
+                <Icon name={milestone.icon} size={31} />
+              </span>
+              <div class="pt-2 sm:pt-3">
+                <h3 class="m-0 text-[clamp(1.65rem,3vw,1.6rem)] leading-tight font-bold tracking-[-.04em] text-ink">
+                  {milestone.title}
+                </h3>
+                <p class="mt-4 max-w-[42rem] text-base leading-[1.75] text-ink/65 sm:text-lg">
+                  {milestone.description}
+                </p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </div>
+</section>

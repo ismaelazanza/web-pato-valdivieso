@@ -1,0 +1,105 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
+
+const navigation = [
+  { label: 'Inicio', href: '/', current: currentPath === '/' },
+  { label: 'Patricio', href: '/patricio/', current: currentPath === '/patricio' },
+  { label: 'Propuestas', href: '/propuestas/', current: currentPath === '/propuestas' },
+  { label: 'Concejales', href: '/concejales/', current: currentPath === '/concejales' },
+];
+
+const socialLinks = [
+  { label: 'Facebook', href: 'https://www.facebook.com/patricioalberto.valdiviesoespinosa', icon: 'mdi:facebook' },
+  { label: 'Instagram', href: 'https://www.instagram.com/patriciovaldiviesoe/', icon: 'mdi:instagram' },
+  { label: 'TikTok', href: 'https://www.tiktok.com/@patriciovaldiviesoe', icon: 'mdi:music-note' },
+];
+---
+
+<header
+  class="group/header relative z-30 grid min-h-[5.75rem] grid-cols-[10.75rem_1fr] border-b border-line/70 bg-surface min-[481px]:min-h-[6.5rem] min-[481px]:grid-cols-[minmax(11.5rem,15rem)_1fr] lg:min-h-[var(--header-height)] lg:grid-cols-[clamp(13.5rem,18vw,17rem)_1fr]"
+  data-header
+>
+  <a class="flex items-center justify-center bg-primary px-4 py-3 no-underline min-[481px]:px-5 lg:px-6 lg:py-4" href="/" aria-label="Loja Compromiso, inicio">
+    <img class="h-auto max-h-full w-full object-contain" src="/images/logolojacompromiso.svg" alt="Loja Compromiso" />
+  </a>
+
+  <div class="flex min-w-0 items-center justify-end px-5 lg:justify-start lg:px-[clamp(1.5rem,4vw,4.75rem)]">
+    <nav class="hidden h-full items-stretch gap-[clamp(1.8rem,3.2vw,3.9rem)] lg:flex uppercase" aria-label="Navegación principal">
+      {
+        navigation.map((item) => (
+          <a class="group/link relative flex items-center text-[.91rem] font-semibold tracking-[.035em] text-ink no-underline" href={item.href} aria-current={item.current ? 'page' : undefined}>
+            {item.label}
+            <span class:list={['absolute right-0 bottom-[1.45rem] left-0 h-[3px] origin-right bg-accent transition-transform duration-200 group-hover/link:origin-left group-hover/link:scale-x-100', item.current ? 'scale-x-100' : 'scale-x-0']} aria-hidden="true" />
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="ml-auto hidden gap-3 lg:flex" aria-label="Redes sociales">
+      {
+        socialLinks.map((item) => (
+          <a class="grid size-[2.55rem] place-items-center rounded-full text-primary transition-colors hover:bg-secondary hover:text-primary-dark" href={item.href} target="_blank" rel="noreferrer" aria-label={item.label}>
+            <Icon name={item.icon} size={20} />
+          </a>
+        ))
+      }
+    </div>
+
+    <button class="grid size-12 cursor-pointer place-items-center rounded-full border-0 bg-secondary p-0 text-primary lg:hidden" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-button>
+      <span class="sr-only">Abrir menú</span>
+      <Icon class="group-data-[menu-open]/header:hidden" name="mdi:menu" size={27} />
+      <Icon class="hidden group-data-[menu-open]/header:block" name="mdi:close" size={27} />
+    </button>
+  </div>
+
+  <div class="absolute top-full right-0 left-0 hidden border-t border-line bg-surface px-5 pt-5 pb-6 shadow-[0_1.4rem_2.5rem_rgb(5_41_87/.13)] lg:hidden" id="mobile-menu" data-mobile-menu>
+    <nav class="grid" aria-label="Navegación móvil">
+      {
+        navigation.map((item) => (
+          <a class:list={['border-b border-line px-1 py-[.95rem] text-[1.1rem] font-semibold no-underline', item.current ? 'text-primary' : 'text-ink']} href={item.href} aria-current={item.current ? 'page' : undefined}>
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+    <div class="mt-4 flex gap-2">
+      {
+        socialLinks.map((item) => (
+          <a class="grid size-[2.55rem] place-items-center rounded-full text-primary transition-colors hover:bg-secondary hover:text-primary-dark" href={item.href} target="_blank" rel="noreferrer" aria-label={item.label}>
+            <Icon name={item.icon} size={22} />
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector('[data-header]');
+  const button = document.querySelector<HTMLButtonElement>('[data-menu-button]');
+  const menu = document.querySelector<HTMLElement>('[data-mobile-menu]');
+
+  const closeMenu = () => {
+    if (!button || !menu || !header) return;
+    button.setAttribute('aria-expanded', 'false');
+    button.querySelector('span')!.textContent = 'Abrir menú';
+    menu.classList.add('hidden');
+    header.removeAttribute('data-menu-open');
+  };
+
+  button?.addEventListener('click', () => {
+    if (!menu || !header) return;
+    const isOpen = button.getAttribute('aria-expanded') === 'true';
+    button.setAttribute('aria-expanded', String(!isOpen));
+    button.querySelector('span')!.textContent = isOpen ? 'Abrir menú' : 'Cerrar menú';
+    menu.classList.toggle('hidden', isOpen);
+    header.toggleAttribute('data-menu-open', !isOpen);
+  });
+
+  menu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 1024) closeMenu();
+  });
+</script>
