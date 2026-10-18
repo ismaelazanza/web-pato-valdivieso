@@ -8,7 +8,7 @@ import { Icon } from "astro-icon/components";
 >
   <div class="absolute inset-0" aria-hidden="true">
     <img
-      class="size-full object-cover object-center md:object-right"
+      class="size-full object-cover object-[86%_center] md:object-right"
       src="/images/backgroundcolores2.avif"
       alt=""
       loading="eager"
@@ -39,13 +39,13 @@ import { Icon } from "astro-icon/components";
     </div>
 
     <button
-      class="group/card mt-72 grid w-[min(78vw,19rem)] cursor-pointer appearance-none justify-items-start border-0 bg-transparent p-0 text-left font-[inherit] text-primary md:mt-0 md:w-[min(100%,22rem)]"
+      class="group/card hidden w-[min(78vw,19rem)] cursor-pointer appearance-none justify-items-start border-0 bg-transparent p-0 text-left font-[inherit] text-primary md:grid md:w-[min(100%,22rem)]"
       type="button"
       aria-haspopup="dialog"
       aria-controls="patricio-video-modal"
       data-video-open
     >
-      <span class="relative block aspect-[16/8.8] overflow-hidden bg-surface">
+      <span class="relative block aspect-[16/8.8] w-full overflow-hidden bg-surface">
         <img
           class="size-full object-cover object-[50%_28%] transition-transform duration-[350ms] group-hover/card:scale-[1.025]"
           src="/images/patricio-camisa.jpg"
@@ -61,11 +61,11 @@ import { Icon } from "astro-icon/components";
           <Icon name="mdi:play" size={24} />
         </span>
       </span>
-      <span class="mt-[.9rem] text-[.82rem] font-semibold"
+      <span class="mt-[.9rem] hidden text-[.82rem] font-semibold md:block"
         >Conoce a Patricio</span
       >
       <strong
-        class="mt-[.15rem] text-[clamp(1.15rem,1.8vw,1.55rem)] leading-[1.1]"
+        class="mt-[.15rem] hidden text-[clamp(1.15rem,1.8vw,1.55rem)] leading-[1.1] md:block"
         >Una vida al servicio de Loja</strong
       >
     </button>
