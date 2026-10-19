@@ -96,15 +96,14 @@ import { Icon } from "astro-icon/components";
       <Icon name="mdi:close" size={27} />
     </button>
     <div class="aspect-video overflow-hidden bg-primary-dark">
-      <iframe
-        class="size-full border-0"
-        src=""
-        title="Video de Patricio Valdivieso"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen
+      <video
+        class="size-full bg-black object-contain"
+        controls
+        playsinline
+        preload="metadata"
+        aria-label="Video de Patricio Valdivieso"
         data-video-frame
-      ></iframe>
+      ></video>
     </div>
   </div>
 </div>
@@ -113,12 +112,13 @@ import { Icon } from "astro-icon/components";
   const videoOpenButton = document.querySelector<HTMLButtonElement>('[data-video-open]');
   const videoModal = document.querySelector<HTMLElement>('[data-video-modal]');
   const videoCloseButton = document.querySelector<HTMLButtonElement>('[data-video-close]');
-  const videoFrame = document.querySelector<HTMLIFrameElement>('[data-video-frame]');
-  const videoUrl = 'https://www.youtube-nocookie.com/embed/AYBHYErRwaI?autoplay=1&rel=0';
+  const videoFrame = document.querySelector<HTMLVideoElement>('[data-video-frame]');
+  const videoUrl = '/images/lv_0_20261015154316con.mp4';
 
   const openVideo = () => {
     if (!videoModal || !videoFrame) return;
     videoFrame.src = videoUrl;
+    videoFrame.play().catch(() => {});
     videoModal.classList.remove('hidden');
     videoModal.classList.add('flex');
     document.body.classList.add('overflow-hidden');
@@ -129,7 +129,9 @@ import { Icon } from "astro-icon/components";
     if (!videoModal || !videoFrame) return;
     videoModal.classList.add('hidden');
     videoModal.classList.remove('flex');
-    videoFrame.src = '';
+    videoFrame.pause();
+    videoFrame.removeAttribute('src');
+    videoFrame.load();
     document.body.classList.remove('overflow-hidden');
     videoOpenButton?.focus();
   };
